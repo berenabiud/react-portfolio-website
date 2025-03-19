@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import {
-  faAngular,
+  // faFlask,
   faCss3,
   faGitAlt,
   faHtml5,
   faJsSquare,
   faReact,
 } from '@fortawesome/free-brands-svg-icons'
+import { faFlask } from '@fortawesome/free-solid-svg-icons'; 
 import Loader from 'react-loaders'
 import AnimatedLetters from '../AnimatedLetters'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -33,7 +34,10 @@ const About = () => {
             />
           </h1>
           <p>
-            I'm a very ambitious front-end developer looking for a role in an
+          From high school to my transformative experience at Moringa School, my journey has been defined by curiosity, resilience, and a passion for growth. In high school, I laid the foundation for my academic and personal development, excelling in [ science, leadership roles and extracurriculars] while nurturing a love for problem-solving and creativity. After high school, I sought to challenge myself further, which led me to Moringa School, where I immersed myself in the world of [ software development]. There, I honed my technical skills, collaborated on innovative projects, and embraced a growth mindset that pushed me to thrive in a fast-paced, ever-evolving industry. Today, I am a confident and skilled professional, equipped with the knowledge and determination to make a meaningful impact in we development. My journey is a testament to my commitment to lifelong learning and my belief in the power of perseverance
+          </p>
+          <p>
+            I'm a very ambitious full-stack developer looking for a role in an
             established IT company with the opportunity to work with the latest
             technologies on challenging and diverse projects.
           </p>
@@ -42,8 +46,8 @@ const About = () => {
             improving my chops one design problem at a time.
           </p>
           <p>
-            If I need to define myself in one sentence that would be a family
-            person, father of a beautiful daughter, a sports fanatic,
+            If I need to define myself in one sentence that would be a gaming
+            person, a sports fanatic,
             photography enthusiast, and tech-obsessed!!!
           </p>
         </div>
@@ -51,7 +55,7 @@ const About = () => {
         <div className="stage-cube-cont">
           <div className="cubespinner">
             <div className="face1">
-              <FontAwesomeIcon icon={faAngular} color="#DD0031" />
+              <FontAwesomeIcon icon={faFlask} color="#DD0031" />
             </div>
             <div className="face2">
               <FontAwesomeIcon icon={faHtml5} color="#F06529" />

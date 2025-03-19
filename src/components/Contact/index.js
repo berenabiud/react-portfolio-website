@@ -1,36 +1,42 @@
-import { useEffect, useState } from 'react'
-import Loader from 'react-loaders'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import { useRef } from 'react'
-import emailjs from '@emailjs/browser'
-import AnimatedLetters from '../AnimatedLetters'
-import './index.scss'
+import { useEffect, useState } from 'react';
+import Loader from 'react-loaders';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import AnimatedLetters from '../AnimatedLetters';
+import './index.scss';
 
 const Contact = () => {
-  const [letterClass, setLetterClass] = useState('text-animate')
-  const form = useRef()
+  const [letterClass, setLetterClass] = useState('text-animate');
+  const form = useRef();
 
   useEffect(() => {
-    return setTimeout(() => {
-      setLetterClass('text-animate-hover')
-    }, 3000)
-  }, [])
+    // Set the letter class animation
+    const timer = setTimeout(() => {
+      setLetterClass('text-animate-hover');
+    }, 3000);
+
+    return () => clearTimeout(timer); // Cleanup timer
+  }, []);
 
   const sendEmail = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     emailjs
       .sendForm('gmail', 'template_YeJhZkgb', form.current, 'your-token')
       .then(
         () => {
-          alert('Message successfully sent!')
-          window.location.reload(false)
+          alert('Message successfully sent!');
+          window.location.reload(false);
         },
         () => {
-          alert('Failed to send the message, please try again')
+          alert('Failed to send the message, please try again');
         }
-      )
-  }
+      );
+  };
+
+  // Your current location coordinates
+  const myLocation = [-1.286389, 36.817223]; // Replace with your actual coordinates
 
   return (
     <>
@@ -44,9 +50,39 @@ const Contact = () => {
             />
           </h1>
           <p>
-            I am interested in freelance opportunities - especially on ambitious
-            or large projects. However, if you have any other requests or
-            questions, don't hesitate to contact me using below form either.
+            I'm a passionate young developer with a love for building clean,
+            functional, and user-friendly applications. I'm always excited to take
+            on new challenges and collaborate on innovative projects. Whether you
+            have a question, an opportunity, or just want to say hi, feel free to
+            reach out!
+          </p>
+          <p>
+            I’m currently open to <strong>freelance projects</strong>,{' '}
+            <strong>internships</strong>, or <strong>junior developer roles</strong>.
+            I’m particularly interested in working on projects involving{' '}
+            <strong>web development</strong>, <strong>AI</strong>, or{' '}
+            <strong>mobile apps</strong>. If you have an idea or a project you'd
+            like to discuss, I'd love to hear about it!
+          </p>
+          <p>
+            Don’t hesitate to drop me a message – I’m always happy to chat! You
+            can also find me on{' '}
+            <a
+              href="https://www.linkedin.com/in/your-profile"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>{' '}
+            or{' '}
+            <a
+              href="https://github.com/berenabiud"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+            .
           </p>
           <div className="contact-form">
             <form ref={form} onSubmit={sendEmail}>
@@ -85,27 +121,27 @@ const Contact = () => {
           </div>
         </div>
         <div className="info-map">
-          Slobodan Gajić,
+          Beren Abiud,
           <br />
-          Serbia,
+          Kenya,
           <br />
-          Branka RadiČevića 19, 22000 <br />
-          Sremska Mitrovica <br />
+          P.B.O.X, 1190 <br />
+          Nairobi<br />
           <br />
-          <span>freelancerslobodan@gmail.com</span>
+          <span>berenabiud4@gmail.com</span>
         </div>
         <div className="map-wrap">
-          <MapContainer center={[44.96366, 19.61045]} zoom={13}>
+          <MapContainer center={myLocation} zoom={13}>
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <Marker position={[44.96366, 19.61045]}>
-              <Popup>Sloba lives here, come over for a cup of coffee :)</Popup>
+            <Marker position={myLocation}>
+              <Popup>I'm here! Feel free to reach out.</Popup>
             </Marker>
           </MapContainer>
         </div>
       </div>
       <Loader type="pacman" />
     </>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

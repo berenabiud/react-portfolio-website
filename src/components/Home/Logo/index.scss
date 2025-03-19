@@ -11,6 +11,7 @@
   margin: auto;
 
   svg {
+    display: none;
     width: 100%;
     height: auto;
     bottom: 0;
@@ -18,16 +19,15 @@
   }
 
   .solid-logo {
-    position: absolute;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    left: 0;
-    margin: auto;
-    width: 100%;
-    opacity: 0;
-    transform: rotateZ(30deg) !important;
-    z-index: 1;
+    position: absolute; // Keep this
+  top: 50%; // Move down by 50% of the container's height
+  left: 50%; // Move right by 50% of the container's width
+  transform: translate(-50%, -50%); // Shift back by 50% of its own width and height
+  width: 100%; // Adjust as needed
+  max-width: 500px; // Optional: Limit the maximum width
+  opacity: 0; // Keep this if you want it to be hidden initially
+  z-index: 1; // Keep this
+  border-radius: 50%;
   }
 }
 
