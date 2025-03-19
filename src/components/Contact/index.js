@@ -11,23 +11,27 @@ const Contact = () => {
   const form = useRef();
 
   useEffect(() => {
-    // Set the letter class animation
     const timer = setTimeout(() => {
       setLetterClass('text-animate-hover');
     }, 3000);
 
-    return () => clearTimeout(timer); // Cleanup timer
+    return () => clearTimeout(timer);
   }, []);
 
   const sendEmail = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent the default form submission behavior
 
     emailjs
-      .sendForm('gmail', 'template_YeJhZkgb', form.current, 'your-token')
+      .sendForm(
+        'service_b3eog1s', // Replace with your EmailJS service ID
+        'template_63dwl8x', // Replace with your EmailJS template ID
+        form.current,
+        'iArP6YFUqpJ3azMQ2' // Replace with your EmailJS user ID
+      )
       .then(
         () => {
           alert('Message successfully sent!');
-          window.location.reload(false);
+          window.location.reload(false); // Reload the page to reset the form
         },
         () => {
           alert('Failed to send the message, please try again');
@@ -35,7 +39,6 @@ const Contact = () => {
       );
   };
 
-  // Your current location coordinates
   const myLocation = [-1.286389, 36.817223]; // Replace with your actual coordinates
 
   return (
