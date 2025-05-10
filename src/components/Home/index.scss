@@ -6,9 +6,6 @@
     transform: translateY(-50%);
     width: 40%;
     max-height: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
   }
 
   h1 {
@@ -42,15 +39,13 @@
       opacity: 0.6;
     }
 
-    img.logo-image {
-      width: 64px; // Set the desired width
-      height: auto; // Maintain aspect ratio
-      margin-left: 20px; // Adjust spacing as needed
+    img {
+      margin-left: 20px;
       opacity: 0;
+      width: 32px;
+      height: auto;
       animation: rotateIn 1s linear both;
       animation-delay: 1.4s;
-      max-width: 100%; // Prevents the logo from overflowing
-      display: inline-block; // Ensures the logo behaves as a block element
     }
   }
 
@@ -82,5 +77,50 @@
       background: #ffd700;
       color: #333;
     }
+  }
+}
+
+
+
+@media screen and (max-width: 1200px) {
+  .tags,
+  .home-page h1:before,
+  .home-page h1:after {
+    display: none;
+  }
+
+  .home-page .text-zone {
+    position: initial;
+    width: 100%;
+    transform: none;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .home-page .flat-button {
+    float: none;
+    display: block;
+    margin: 20px auto 0 auto;
+    width: 124px;
+  }
+
+  .logo-container {
+    position: relative;
+    width: 100px;
+    height: auto;
+    top: 50px;
+    right: 0;
+    box-sizing: border-box;
+    margin: auto;
+    left: 0;
+  }
+
+  .logo-container svg {
+    position: absolute;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    margin: auto;
   }
 }

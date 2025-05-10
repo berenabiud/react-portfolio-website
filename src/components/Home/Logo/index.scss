@@ -1,37 +1,109 @@
-.logo-container {
-  z-index: 0;
-  width: 400px;
-  height: 609px;
-  opacity: 1; // Make the container visible
-  position: absolute;
-  top: 0;
-  right: 15%;
-  bottom: 0;
-  left: auto;
-  margin: auto;
+.home-page {
+  position: relative; // Ensure parent has relative positioning
 
-  svg {
-    display: none; // Make the SVG visible
-    width: 100%;
-    height: auto;
-    bottom: 0;
-    transform: rotateZ(30deg) !important;
-  }
-
-  .solid-logo {
+  .text-zone {
     position: absolute;
+    left: 10%;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    max-width: 500px;
-    opacity: 1; // Make the image visible
+    transform: translateY(-50%);
+    width: 40%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     z-index: 1;
-    border-radius: 50%;
-  }
-}
 
-.svg-container {
-  stroke: #ffd700;
-  stroke-width: 10;
+    @media (max-width: 768px) {
+      position: static;
+      transform: none;
+      width: 80%;
+      margin: 0 auto;
+      text-align: left;
+      padding-top: 20px;
+      padding-bottom: 40px; // Make space for the image to move down
+    }
+
+    @media (max-width: 480px) {
+      width: 90%;
+    }
+  }
+
+  // Adjusting the image positioning
+  .logo-container {
+    z-index: 0;
+    width: 400px;
+    height: 609px;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    right: 15%;
+    bottom: 0;
+    left: auto;
+    margin: auto;
+
+    @media (max-width: 768px) {
+      top: 40%; // Move the image down on smaller screens
+      width: 300px; // Reduce width for smaller screens
+      height: auto; // Adjust height proportionally
+      right: 5%; // Adjust the right position for better alignment
+    }
+
+    @media (max-width: 480px) {
+      top: 50%; // Further adjust top positioning on very small screens
+      width: 200px; // Further reduce size for very small screens
+      right: 0;
+      left: 0;
+      margin: auto;
+    }
+
+    svg {
+      display: none;
+      width: 100%;
+      height: auto;
+      bottom: 0;
+      transform: rotateZ(30deg) !important;
+    }
+
+    .solid-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 500px;
+      opacity: 1;
+      z-index: 1;
+      border-radius: 50%;
+    }
+  }
+
+  .flat-button {
+    color: #ffd700;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    font-family: sans-serif;
+    text-decoration: none;
+    padding: 10px 18px;
+    border: 1px solid #ffd700;
+    margin-top: 25px;
+    float: left;
+    animation: fadeInAnimation 1s 1.8s backwards;
+    white-space: nowrap;
+
+    &:hover {
+      background: #ffd700;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+      padding: 8px 16px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 11px;
+      padding: 6px 12px;
+    }
+  }
 }
